@@ -1,24 +1,11 @@
-# README
+# Solr Test
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Very quick and dirty implementation of a Solr search index as proof of concept.
 
-Things you may want to cover:
+## Setup/running
 
-* Ruby version
+1. Run `bundle install` to install all the gems
+2. Run `bundle exec rake sunspot:solr:start` to start the local dev Solr instance (requires JRE)
+3. Run `bundle exec rake db:seed` to generate some test data
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+In the `rails console`, you can search using `Post.search` (see [here](https://github.com/sunspot/sunspot#searching-objects) for documentation), or `Post.fuzzy_find('term')` to use a standard fuzzy searching approach (see [here](https://github.com/pacosgrove/solr-test/blob/b99139cdec89b5d7abb9b44341baba44f7818de0/app/models/application_record.rb#L4) for the code).
